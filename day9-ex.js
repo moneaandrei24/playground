@@ -494,7 +494,256 @@ function whichLetter(arr){
           }
           m=0;
   }
-  return item
+  return item //mec
    
 }
  console.log(whichLetter(countryList))
+
+ //LEVEL 3
+ //1Use the countries information, in the data folder. Sort countries by name, by capital, by population
+
+
+ let countriesArr=[
+  { country: 'China', population: 1377422166, capital: 'Beijing' },
+  { country: 'India', population: 1295210000, capital: 'New Delhi' },
+  {
+    country: 'United States of America',
+    population: 323947000,
+    capital: 'Washington, D.C.'
+  },
+  { country: 'Indonesia', population: 258705000, capital: 'Jakarta' },
+  { country: 'Brazil', population: 206135893, capital: 'Brasilia' },
+  { country: 'Pakistan', population: 194125062, capital: 'Islamabad' },
+  { country: 'Nigeria', population: 186988000, capital: 'Abuja' },
+  { country: 'Bangladesh', population: 161006790, capital: 'Dacca' },
+  { country: 'Russian Federation', population: 146599183, capital: 'Moscow' },
+  { country: 'Japan', population: 126960000, capital: 'Tokyo' }
+]
+
+function sortCountriesByName(arr){
+
+	return arr.sort(function (a, b) {
+		if (a.country < b.country) return -1
+		if (a.country > b.country) return 1
+		return 0
+	})
+}
+console.log(sortCountriesByPopulation(countriesArr))
+
+function sortCountriesByPopulation(arr){
+
+	return arr.sort(function (a, b) {
+		if (a.population < b.population) return -1
+		if (a.population > b.population) return 1
+		return 0
+	})
+}
+console.log(sortCountriesByPopulation(countriesArr))
+
+function sortCountriesByCapital(arr){
+
+	return arr.sort(function (a, b) {
+		if (a.capital < b.capital) return -1
+		if (a.capital > b.capital) return 1
+		return 0
+	})
+}
+console.log(sortCountriesByCapital(countriesArr))
+
+//2 Find the 10 most spoken languages:
+
+let languages=[
+	{country: 'English',count:91},
+	{country: 'French',count:45},
+	{country: 'Arabic',count:25},
+	{country: 'Spanish',count:24},
+	{country:'Russian',count:9},
+	{country:'Portuguese', count:9},
+	{country:'Dutch',count:8},
+	{country:'German',count:7},
+	{country:'Chinese',count:5},
+	{country:'Swahili',count:4}
+	]
+	
+
+	function mostSpokenLanguages(arr, numb){
+
+		arr.sort(function (a, b) {
+			if (a.count < b.count) return 1
+			if (a.count > b.count ) return -1
+			return 0
+		})
+		return arr.slice(0,numb)
+	}
+
+console.log(mostSpokenLanguages(languages, 5))
+console.log(mostSpokenLanguages(languages, 10))
+
+//3Use countries_data.js file create a function which create the ten most populated countries
+
+function mostPopulatedCountries(arr,numb){
+
+	arr.sort(function (a, b) {
+		if (a.population < b.population) return 1
+		if (a.population> b.population ) return -1
+		return 0
+	})
+	return arr.slice(0,numb)
+}
+
+console.log(mostPopulatedCountries(countriesArr,5))
+console.log(mostPopulatedCountries(countriesArr,10))
+
+/* 4Try to develop a program which calculate measure of central tendency of a sample(mean, median, mode)
+ and measure of variability(range, variance, standard deviation). 
+ In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample.
+ You can create an object called statistics and create all the functions which do statistical calculations as method for the statistics object.
+  Check the output below.*/
+
+	const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+
+function count(arr){
+  return arr.length
+}
+
+function sum(arr){
+	return arr.reduce((a,b)=>a + b)
+}
+
+
+function max(arr){
+	let biggest=0
+  arr.forEach((element)=>{
+		if(biggest<element){
+			biggest=element
+		}
+	})
+
+	return biggest
+
+}
+
+function min(arr){
+	let smallest=max(arr)
+  arr.forEach((element)=>{
+		if(smallest>element){
+			smallest=element
+		}
+	})
+
+	return smallest
+
+}
+
+
+function range(arr){
+	return max(arr)-min(arr)
+}
+
+
+function mean(arr){
+	return Math.round(sum(arr)/count(arr))
+}
+
+
+function median(arr){
+
+	let sorted=arr.sort(function (a, b) {
+		return a - b
+	})
+  return sorted[Math.round((arr.length - 1) / 2)]
+}
+
+
+function mode(arr){
+	
+
+  var mf = 1;
+  var m = 0;
+  var item;
+  for (var i=0; i<arr.length; i++)
+  {
+          for (var j=i; j<arr.length; j++)
+          {
+                  if (arr[i] ==arr[j])
+                   m++;
+                  if (mf<m)
+                  {
+                    mf=m; 
+                    item = arr[i];
+                  }
+          }
+          m=0;
+  }
+  return [item , mf]   //mec
+   
+}
+
+
+function vari(arr){
+
+	function mean2(arr){
+		return (sum(arr)/count(arr))
+	}
+  
+	let a=arr.map(element=>( element - mean2(arr) ) ** 2)
+	let b=sum(a) / (count(arr)-1)
+
+	return b.toFixed(2)
+}
+console.log(vari(ages))
+
+function std(arr){
+
+	function mean2(arr){
+		return (sum(arr)/count(arr))
+	}
+  
+	let a=arr.map(element=>( element - mean2(arr) ) ** 2)
+	let b=sum(a) / count(arr)
+
+	 return Math.sqrt(b.toFixed(2)).toFixed(2)
+
+
+}
+
+function freqDist(arr){
+	const map = {};
+	for(let i = 0; i < arr.length; i++){
+    map[arr[i]] = (map[arr[i]] || 0) + 1;
+	};
+	return map;//mec
+};
+
+
+
+let statistics={}
+statistics.count=count(ages)
+statistics.sum=sum(ages)
+statistics.min=min(ages)
+statistics.max=max(ages)
+statistics.range=range(ages)
+statistics.mean=mean(ages)
+statistics.median=median(ages)
+statistics.mode=mode(ages)
+statistics.variance=vari(ages)
+statistics.standardDeviation=std(ages)
+statistics.frequencyDistribution=freqDist(ages)
+
+statistics.describe= function (){
+
+
+return `Count: ${count}\n
+Sum:  ${ this.sum} \n
+Min:  ${ this.min} \n
+Max:  ${ this.max} \n
+Range:  ${ this.range} \n
+Mean:  ${ this.mean} \n
+Median:  ${ this.median} \n
+Mode:  (${ this.mode}) \n
+Variance:  ${ this.variance} \n
+Standard Deviation:  ${ this.standardDeviation} \n
+Frequency Distribution: ${ this.frequencyDistribution}`
+}
+
+console.log(statistics.describe())
