@@ -478,21 +478,21 @@ function whichLetter(arr){
   let letters=arr.map((country) => country.slice(0, 1))
 
   var mf = 1;
-  var m = 0;
+  var count = 0;
   var item;
   for (var i=0; i<letters.length; i++)
   {
           for (var j=i; j<letters.length; j++)
           {
                   if (letters[i] ==letters[j])
-                   m++;
-                  if (mf<m)
+                   count++;
+                  if (mf<count)
                   {
-                    mf=m; 
+                    mf=count; 
                     item = letters[i];
                   }
           }
-          m=0;
+          count=0;
   }
   return item //mec
    

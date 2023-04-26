@@ -22,7 +22,7 @@
    
   let sortedPoints=
   numbPoints.sort(function (a, b) {
-    return a - b
+    return b < a ? -1 : 1
   })
   console.log(sortedPoints)
  
@@ -51,8 +51,8 @@ function tenMostFrequentWords(str){}
       countWords[word] = 1;
     }
   }
-  console.log(countWords)
+  let result=Object.entries(countWords).map(item=>({word:item[0],count:item[1]}))
+  console.log(result)
 
-
-
+///????
  
