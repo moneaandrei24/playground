@@ -304,3 +304,190 @@ const firstElement = array7.shift();
 console.log(array7);
 
 console.log(firstElement);
+
+//Array.prototype.reduce()
+//!!!
+
+//Array.prototype.forEach()
+
+//String.prototype.slice()
+/*-it returns a sliced string without modifing the string
+  -it has 2 parameters: the index where the string will begin to be sliced and 
+   the index where it stops
+  -it can be used with negative index 
+   */
+
+   const str1 = "The morning is upon us."; 
+const str2 = str1.slice(1, 8);
+const str3 = str1.slice(4, -2);
+const str4 = str1.slice(12);
+const str5 = str1.slice(30);
+
+console.log(str2);
+console.log(str3); 
+console.log(str4); 
+console.log(str5)
+
+//String.prototype.split()
+/*
+-it returns an array with the string as a single element
+-the first parameter is the spliting rule: '' ; ' ' ; or regular expresions
+-the second parameter is the number of items that will be splited
+*/
+
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+const words3 = str.split(' ');//it returns item
+console.log(words3[3]);
+
+
+const chars = str.split('');//it returns letter
+console.log(chars[8]);
+
+
+const strCopy = str.split();
+console.log(strCopy);
+
+
+
+const names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand ";
+
+console.log(names);
+
+const re = /\s*(?:;|$)\s*/;
+const nameList = names.split(re);
+
+console.log(nameList);
+
+const myString = "Hello World. How are you doing?";
+const splits = myString.split(" ", 3);//it returns the first 3 items in an array
+
+//String.prototype.includes()
+
+/*
+-the first parameter is a string
+-the second parameter is the index you want the search to bagin
+-it search the parameter string and it returns true if it exist in the string otherwise false
+*/
+
+const str7 = "To be, or not to be, that is the question.";
+
+console.log(str7.includes("To be")); 
+console.log(str7.includes("question")); 
+console.log(str7.includes("nonexistent")); 
+console.log(str7.includes("To be", 1)); 
+console.log(str7.includes("TO BE")); 
+console.log(str7.includes(""));
+
+
+//String.prototype.replace()
+
+/*
+-he replace() method returns a new string with one, some, or all matches of a pattern replaced by a replacement.
+-it has two parameters
+-first parameter is the part of the string that will be replaced: string or regExp
+-the second parameter is the replacement or function
+-it won t change the original string
+*/
+
+const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+
+console.log(p.replace('dog', 'monkey'));
+
+const regex = /Dog/i;
+const regex2 = /Dog/gi;
+console.log(p.replace(regex, 'ferret'));
+console.log(p.replace(regex2, 'ferret'));
+
+const re2 = /(\w+)\s(\w+)/;
+const str8 = "Maria Cruz";
+const newstr = str8.replace(re2, "$2, $1");
+console.log(newstr); // Cruz, Maria
+
+//$n-Inserts the nth (1-indexed) capturing group where n is a positive integer less than 100.
+
+//String.prototype.trim()
+/*
+-The trim() method removes whitespace from both ends of a string and returns a new string, without modifying the original string.
+-To return a new string with whitespace trimmed from just one end, use trimStart() or trimEnd().
+*/
+
+
+const greeting = '   Hello world!   ';
+
+console.log(greeting);
+
+console.log(greeting.trim());
+
+//String.prototype.charCodeAt()
+//!!
+
+//String.prototype.match()
+
+/*
+-The match() method retrieves the result of matching a string against a regular expression.
+-it returns array
+*/
+
+const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+const regex3 = /[A-Z]/g;//all upperCase letters
+const found3 = paragraph.match(regex3);
+
+console.log(found3);
+
+//When the regexp parameter is a string or a number, it is implicitly converted to a RegExp by using new RegExp(regexp).
+
+const str9 =
+  "NaN means not a number. Infinity contains -Infinity and +Infinity in JavaScript.";
+const str10 =
+  "My grandfather is 65 years old and My grandmother is 63 years old.";
+const str11 = "The contract was declared null and void.";
+str9.match("number"); // "number" is a string. returns ["number"]
+str9.match(NaN); // the type of NaN is the number. returns ["NaN"]
+str9.match(Infinity); // the type of Infinity is the number. returns ["Infinity"]
+str9.match(+Infinity); // returns ["Infinity"]
+str9.match(-Infinity); // returns ["-Infinity"]
+str10.match(65); // returns ["65"]
+str10.match(+65); // A number with a positive sign. returns ["65"]
+str11.match(null); // returns ["null"]
+
+//String.prototype.startsWith()
+
+/*-The startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate.
+  -first parameter is the character that the string should begin with
+  -the second is the index where the character should be placed
+*/
+
+const str12 = 'Saturday night plans';
+
+console.log(str12.startsWith('Sat'));
+// Expected output: true
+
+console.log(str12.startsWith('Sat', 3));
+// Expected output: false
+
+//String.prototype.endsWith()
+ // same as //String.prototype.startsWith() but for the end of the string
+
+
+ //String.prototype.padEnd()
+
+ /*
+ -it adds length to string
+ -the first parameter will be the new length
+ -the second parameter will be the pattern which filles the empty slot, if the pattern is too big 
+ the empty slots will be filled with how many elements it is needed 
+ */
+
+ const str13 = 'Breaded Mushrooms';
+console.log(str13.padEnd(25, '.'));
+const str14 = '200';
+console.log(str14.padEnd(5));
+
+//String.prototype.padStart()
+//same as //String.prototype.padEnd() but in the start
+
+
+//String.prototype.toUpperCase()
+//String.prototype.toLowerCase()
+  // turns string to upper/lower case
