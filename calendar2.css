@@ -1,0 +1,159 @@
+.container{
+  margin:0;
+  padding:0;
+  height: 80em;
+  box-sizing: border-box;
+  font-family: 'Roboto',sans-serif;
+  background-color: aliceblue;
+  display:flex;
+  flex-direction: column;
+  
+}
+
+html{
+  font-size: 62.5%;
+ }
+
+ .container{
+  
+  background-color:aliceblue ;
+  color:black;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .calendar{
+  
+  width:39rem;
+  height:39rem;
+  background-color:aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius:20px;
+ }
+
+ .month{
+  border-bottom: 1.5px solid rgb(202, 202, 202);
+  display:flex;
+  gap:120px;
+  align-items: center;
+  height:80px;
+ }
+
+ h1{
+  margin-left: 27px;
+  font-weight: 500;
+  font-size: 25px;
+ }
+
+ .angle-box{
+  display:flex;
+ 
+  color:aliceblue;
+  font-size: 25px;
+  display:flex;
+  gap:15px
+
+ }
+ .angle-box div{
+  height:35px;
+  width:40px;
+  background-color: rgb(243, 49, 88);
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:0 2px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+  
+ }
+
+ .weekdays{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:60px
+ }
+
+ .weekdays div{
+  
+  
+  width: calc(38rem/7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 21px;
+ }
+
+ .days{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding:0.2rem;
+  
+ }
+
+ .days div{
+  font-size:1.5em ;
+  width: calc(38rem/7);
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+ 
+ }
+
+ .days div:hover:not(.today){
+  
+  border:0.3px solid rgb(243, 49, 88);
+  cursor: pointer;
+  border-radius: 5px;
+ }
+ .next-date,
+.prev-date{
+  opacity:0.5;
+}
+.today{
+  background-color: rgb(243, 49, 88);
+  border-radius: 5px;
+}
+
+.months-down{
+  display:flex;
+  
+  justify-content: center;
+  align-items: center;
+  height:60px
+}
+ 
+.months-down div{
+  width: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:700;
+  opacity:0.5;
+  
+}
+
+.circle{
+  display:flex; 
+  gap:10px;
+  margin-top:-15px;
+}
+.circle div{
+  width:17px;
+  height:17px;
+  border-radius: 10px;
+  box-shadow:0 2px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+  
+}
+.redMonth{
+  background-color:rgb(243, 49, 88) ;
+}
+.circle div:not(.redMonth){
+  background-color: white;
+}
